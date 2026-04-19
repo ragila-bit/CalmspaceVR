@@ -97,3 +97,23 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Plastic SCM
+.plastic/
+
+# Loose files in project root
+ComputeCommandBuffer.cs
+IBaseCommandBuffer.cs
+IComputeCommandBuffer.cs
+IRasterCommandBuffer.cs
+IUnsafeCommandBuffer.cs
+RasterCommandBuffer.cs
+UnsafeCommandBuffer.cs
+ignore.conf
+
+# Claude Code memory
+.claude/
