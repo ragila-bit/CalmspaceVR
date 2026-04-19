@@ -207,7 +207,7 @@ public class MusicPlayer : MonoBehaviour
         {
             audioSource.Pause();
             isPaused = true;
-            if (playPauseButtonText != null) playPauseButtonText.text = "▶";
+            if (playPauseButtonText != null) playPauseButtonText.text = "►";
         }
         else
         {
