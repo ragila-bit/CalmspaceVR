@@ -30,6 +30,7 @@ public class MusicPlayer : MonoBehaviour
     private const float PalmHoldTime = 0.5f;
     private int currentIndex = 0;
     private bool bWasPressed = false;
+    private bool isPaused = false;
     private XRHandSubsystem handSubsystem;
     private float palmTimer = 0f;
     private bool palmTriggered = false;
@@ -49,7 +50,11 @@ public class MusicPlayer : MonoBehaviour
         }
 
         if (tracks.Count > 0)
+        {
             LoadTrack(0);
+            audioSource.Play();
+            if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
+        }
 
         StartCoroutine(AutoAdvance());
     }
@@ -62,9 +67,9 @@ public class MusicPlayer : MonoBehaviour
             yield return new WaitUntil(() => audioSource != null && audioSource.isPlaying);
             // Wait until it stops
             yield return new WaitWhile(() => audioSource != null && audioSource.isPlaying);
-            // Small buffer to avoid false triggers (e.g. pausing)
+            // Small buffer to avoid false triggers
             yield return new WaitForSeconds(0.1f);
-            if (audioSource != null && !audioSource.isPlaying)
+            if (audioSource != null && !audioSource.isPlaying && !isPaused)
                 NextTrack();
         }
     }
@@ -201,31 +206,35 @@ public class MusicPlayer : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Pause();
-            if (playPauseButtonText != null) playPauseButtonText.text = "▶";
+            isPaused = true;
+            if (playPauseButtonText != null) playPauseButtonText.text = "Play";
         }
         else
         {
             audioSource.Play();
-            if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
+            isPaused = false;
+            if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
         }
     }
 
     public void NextTrack()
     {
         if (tracks.Count == 0) return;
+        isPaused = false;
         currentIndex = (currentIndex + 1) % tracks.Count;
         LoadTrack(currentIndex);
         audioSource.Play();
-        if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
+        if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
     }
 
     public void PreviousTrack()
     {
         if (tracks.Count == 0) return;
+        isPaused = false;
         currentIndex = (currentIndex - 1 + tracks.Count) % tracks.Count;
         LoadTrack(currentIndex);
         audioSource.Play();
-        if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
+        if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
     }
 
     public void QuitGame()

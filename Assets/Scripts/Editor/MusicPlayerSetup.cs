@@ -103,7 +103,7 @@ public class MusicPlayerSetup : Editor
         // Playback buttons
         GameObject prevBtnGO = CreateButton(panelGO.transform, "PreviousButton", "◄◄",
             new Vector2(-130, -28), new Vector2(80, 56), BtnNormal, 20);
-        GameObject playBtnGO = CreateButton(panelGO.transform, "PlayPauseButton", "▶",
+        GameObject playBtnGO = CreateButton(panelGO.transform, "PlayPauseButton", "Pause",
             new Vector2(0, -28), new Vector2(90, 56), AccentColor, 22);
         GameObject nextBtnGO = CreateButton(panelGO.transform, "NextButton", "►►",
             new Vector2(130, -28), new Vector2(80, 56), BtnNormal, 20);
@@ -131,8 +131,8 @@ public class MusicPlayerSetup : Editor
         closeBtnGO.AddComponent<ButtonPokeEffect>();
 
         // Exit button
-        GameObject exitBtnGO = CreateButton(panelGO.transform, "ExitButton", "Exit Game",
-            new Vector2(-155, -158), new Vector2(140, 36), new Color(0.45f, 0.10f, 0.10f, 1f), 14);
+        GameObject exitBtnGO = CreateButton(panelGO.transform, "ExitButton", "Quit Game",
+            new Vector2(0, -158), new Vector2(140, 36), new Color(0.45f, 0.10f, 0.10f, 1f), 14);
         UnityEventTools.AddVoidPersistentListener(exitBtnGO.GetComponent<Button>().onClick, musicPlayer.QuitGame);
         exitBtnGO.AddComponent<ButtonPokeEffect>();
 
@@ -240,7 +240,7 @@ public class MusicPlayerSetup : Editor
         // Controls text
         CreateText(bgGO.transform, "Controls",
             "Press  B  —  Open / Close music player",
-            new Vector2(0, -40), new Vector2(1020, 50), 20, new Color(0.75f, 0.72f, 0.88f), FontStyles.Normal);
+            new Vector2(0, -40), new Vector2(1020, 60), 28, new Color(0.75f, 0.72f, 0.88f), FontStyles.Normal);
 
         // Start button
         GameObject startBtnGO = CreateButton(bgGO.transform, "StartButton", "Begin",
