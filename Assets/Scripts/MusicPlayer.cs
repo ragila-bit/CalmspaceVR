@@ -45,9 +45,11 @@ public class MusicPlayer : MonoBehaviour
 
         if (volumeSlider != null)
         {
-            volumeSlider.value = audioSource != null ? audioSource.volume : 1f;
+            volumeSlider.value = 0.5f;
             volumeSlider.onValueChanged.AddListener(SetVolume);
         }
+        if (audioSource != null)
+            audioSource.volume = 0.5f;
 
         if (tracks.Count > 0)
         {

@@ -334,7 +334,7 @@ public class MusicPlayerSetup : Editor
         Slider slider = sliderGO.AddComponent<Slider>();
         slider.minValue = 0f;
         slider.maxValue = 1f;
-        slider.value    = 1f;
+        slider.value    = 0.5f;
 
         // Background
         GameObject bg = new GameObject("Background");
