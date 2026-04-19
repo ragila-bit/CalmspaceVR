@@ -53,7 +53,7 @@ public class MusicPlayer : MonoBehaviour
         {
             LoadTrack(0);
             audioSource.Play();
-            if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
+            if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
         }
 
         StartCoroutine(AutoAdvance());
@@ -207,13 +207,13 @@ public class MusicPlayer : MonoBehaviour
         {
             audioSource.Pause();
             isPaused = true;
-            if (playPauseButtonText != null) playPauseButtonText.text = "Play";
+            if (playPauseButtonText != null) playPauseButtonText.text = "▶";
         }
         else
         {
             audioSource.Play();
             isPaused = false;
-            if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
+            if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
         }
     }
 
@@ -224,7 +224,7 @@ public class MusicPlayer : MonoBehaviour
         currentIndex = (currentIndex + 1) % tracks.Count;
         LoadTrack(currentIndex);
         audioSource.Play();
-        if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
+        if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
     }
 
     public void PreviousTrack()
@@ -234,7 +234,7 @@ public class MusicPlayer : MonoBehaviour
         currentIndex = (currentIndex - 1 + tracks.Count) % tracks.Count;
         LoadTrack(currentIndex);
         audioSource.Play();
-        if (playPauseButtonText != null) playPauseButtonText.text = "Pause";
+        if (playPauseButtonText != null) playPauseButtonText.text = "▐▐";
     }
 
     public void QuitGame()

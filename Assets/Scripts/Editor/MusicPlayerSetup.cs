@@ -103,7 +103,7 @@ public class MusicPlayerSetup : Editor
         // Playback buttons
         GameObject prevBtnGO = CreateButton(panelGO.transform, "PreviousButton", "◄◄",
             new Vector2(-130, -28), new Vector2(80, 56), BtnNormal, 20);
-        GameObject playBtnGO = CreateButton(panelGO.transform, "PlayPauseButton", "Pause",
+        GameObject playBtnGO = CreateButton(panelGO.transform, "PlayPauseButton", "▐▐",
             new Vector2(0, -28), new Vector2(90, 56), AccentColor, 22);
         GameObject nextBtnGO = CreateButton(panelGO.transform, "NextButton", "►►",
             new Vector2(130, -28), new Vector2(80, 56), BtnNormal, 20);
